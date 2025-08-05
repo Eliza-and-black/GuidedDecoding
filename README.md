@@ -101,3 +101,16 @@ python3 inference.py \
     --model GuideDepth  # 模型类型
 ```
 
+## 推理环境
+
+CUDA: 12.6
+
+Python: 3.9
+
+tensorrt: 8.6.1
+
+torch: 2.2.2
+
+torch_tensorrt: 2.2.0
+
+torchvision: 0.17.2

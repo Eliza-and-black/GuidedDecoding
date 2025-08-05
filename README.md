@@ -85,3 +85,19 @@ Coming soon!
 ```console
 run main.py --train --dataset DATASET --resolution RESOLUTION --model MODEL_NAME --data_path PATH_TO_TRAINING_DATA --num_workers=NUM_WORKERS --save_checkpoint PATH_TO_CHECKPOINTS
 ```
+
+# pytorch单帧推理及测速
+
+修改infer.sh中的下列参数，然后运行即可。
+
+```shell
+python3 inference.py \
+    --eval \
+    --resolution half \ # 分辨率，与模型配套
+    --dataset nyu_reduced \
+    --weights_path /cv_project/GuidedDecoding/weights/NYU_Half_GuideDepth.pth \  #模型路径
+    --save_results /cv_project/GuidedDecoding/results \  # 图像保存路径
+    --test_path /cv_project/GuidedDecoding/test_data \ # 测试图片路径，支持单张图片或图片文件夹
+    --model GuideDepth  # 模型类型
+```
+

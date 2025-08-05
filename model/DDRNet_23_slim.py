@@ -318,7 +318,7 @@ class DualResNet(nn.Module):
         height_output = np.int32(x.shape[-2] // 8).item()
         
         # 验证类型（可选，调试用）
-        print(f"width_output type: {type(width_output)}, numpy type: {np.array(width_output).dtype}")
+        # print(f"width_output type: {type(width_output)}, numpy type: {np.array(width_output).dtype}")
     
         layers = []
 

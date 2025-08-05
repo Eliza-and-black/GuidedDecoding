@@ -310,8 +310,16 @@ class DualResNet(nn.Module):
 
 
     def forward(self, x):
-        width_output = x.shape[-1] // 8
-        height_output = x.shape[-2] // 8
+        # width_output = x.shape[-1] // 8
+        # height_output = x.shape[-2] // 8
+
+        # 关键：用 numpy 将 Python 整数（int64）转为 int32，再转为 Python 整数
+        width_output = np.int32(x.shape[-1] // 8).item()  # 先转为 numpy.int32，再转为 Python 整数
+        height_output = np.int32(x.shape[-2] // 8).item()
+        
+        # 验证类型（可选，调试用）
+        print(f"width_output type: {type(width_output)}, numpy type: {np.array(width_output).dtype}")
+    
         layers = []
 
         x = self.conv1(x)
